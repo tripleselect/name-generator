@@ -31,16 +31,6 @@ const nouns = [
 ]
 
 
-/**
- * @param {{ [s: string]: any; }} messages
- */
-const flatten = (messages) => {
-  const result = Object.values(messages)
-    .map(val => Array.isArray(val) ? val : Object.values(val).flat())
-    .flat()
-
-  return result.some(Array.isArray) ? flatten(result) : result
-}
 
 /** @type {<Type>(arr: Type[]) => Type} */
 const random = arr => arr[Math.floor(Math.random() * arr.length)]
@@ -50,7 +40,7 @@ const random = arr => arr[Math.floor(Math.random() * arr.length)]
  * @returns {string}
  */
 function generate(sep = '-') {
-  return random(flatten(adjectives)) + sep + random(flatten(nouns))
+  return random(adjectives) + sep + random(nouns)
 }
 
 export { generate, nouns, adjectives }
