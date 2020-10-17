@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <title>Generate names for Roblox projects.</title>
+    <button>Generate</button>
+    <h2>click the button</h2>
+    <script type="module">
+      import generate from './generate.mjs'
+      const btn = document.querySelector('button')
+      const txt = document.querySelector('h2')
+      txt.innerText = generate()
+      btn.addEventListener('click', ()=>{
+        txt.innerText = generate()
+      })
+    </script>
+  </body>
+
+</html>
